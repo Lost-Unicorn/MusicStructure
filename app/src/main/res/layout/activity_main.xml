@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/song"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:background="#FF8AE6BC"
+        android:drawableLeft="@drawable/baseline_audiotrack_black_36dp"
+        android:padding="8dp"
+        android:text="@string/song"
+        android:textColor="@color/text"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/album"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:background="#FF8AE6BC"
+        android:drawableLeft="@drawable/baseline_album_black_36dp"
+        android:padding="8dp"
+        android:text="@string/albums"
+        android:textColor="@color/text"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/artist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:background="#FF8AE6BC"
+        android:drawableLeft="@drawable/baseline_recent_actors_black_36dp"
+        android:padding="8dp"
+        android:text="@string/artist"
+        android:textColor="@color/text"
+        android:textSize="24sp" />
+
+
+    <TextView
+        android:id="@+id/library"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:background="#FF8AE6BC"
+        android:drawableLeft="@drawable/baseline_library_music_black_36dp"
+        android:padding="8dp"
+        android:text="@string/library"
+        android:textColor="@color/text"
+        android:textSize="24sp" />
+
+</LinearLayout>
