@@ -1,8 +1,13 @@
 package com.example.donna.musicapp;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -12,9 +17,10 @@ public class LibraryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.song);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Create an ArrayList
-        ArrayList<Song> songs = new ArrayList<Song>();
+        final ArrayList<Song> songs = new ArrayList<Song>();
 
         songs.add(new Song("The Boys Are Back", "Dropkick Murphys", "Signed and Sealed in Blood"));
         songs.add(new Song("Prisoner's Song", "Dropkick Murphys", "Signed and Sealed in Blood"));
@@ -59,6 +65,26 @@ public class LibraryActivity extends AppCompatActivity {
         ListView listView = findViewById(R.id.list);
         // Set adapter to listView
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                // Get the current song
+                Song song = songs.get(i);
+
+                // Create toast
+                Toast toast = Toast.makeText(LibraryActivity.this, "Now playing: " + song.getSong(),
+                        Toast.LENGTH_SHORT);
+
+                // Create a toast's view to change for more visability
+                TextView toastMessage = toast.getView().findViewById(android.R.id.message);
+                toastMessage.setTextColor(Color.BLACK);
+                toastMessage.setBackgroundColor(Color.WHITE);
+
+                // Display the toast message
+                toast.show();
+            }
+        });
     }
 }

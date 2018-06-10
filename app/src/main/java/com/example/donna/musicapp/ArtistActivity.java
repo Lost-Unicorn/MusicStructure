@@ -13,6 +13,8 @@ public class ArtistActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.artist);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
 
         // Create an ArrayList

@@ -1,9 +1,14 @@
 package com.example.donna.musicapp;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -13,10 +18,11 @@ public class AlbumActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.album);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         // Create an ArrayList
-        ArrayList<Album> albums = new ArrayList<Album>();
+        final ArrayList<Album> albums = new ArrayList<Album>();
 
         albums.add(new Album("The Boys Are Back", "Dropkick Murphys", "Signed and Sealed in Blood"));
         albums.add(new Album("Prisoner's Song", "Dropkick Murphys", "Signed and Sealed in Blood"));
@@ -62,11 +68,29 @@ public class AlbumActivity extends AppCompatActivity {
         //Create arrayApdater
         AlbumAdapter adapter = new AlbumAdapter(this, albums);
         // Cast to listView
-        ListView listView = (ListView) findViewById(R.id.album_list);
+        ListView listView = findViewById(R.id.album_list);
         // Set adapter to listView
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                // Get the current song
+                Album album = albums.get(i);
+
+                // Create toast
+                Toast toast = Toast.makeText(AlbumActivity.this, "Now playing: " + album.getAlbum(),
+                        Toast.LENGTH_SHORT);
+                // Create a toast's view to change for more visability
+                TextView toastMessage = toast.getView().findViewById(android.R.id.message);
+                toastMessage.setTextColor(Color.BLACK);
+                toastMessage.setBackgroundColor(Color.WHITE);
+                // Display the toast message
+                toast.show();
+            }
+
+        });
 
     }
-
 }

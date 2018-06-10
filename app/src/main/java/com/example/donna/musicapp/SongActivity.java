@@ -1,11 +1,13 @@
 package com.example.donna.musicapp;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -16,6 +18,7 @@ public class SongActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.song);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         // Create an ArrayList
@@ -68,6 +71,7 @@ public class SongActivity extends AppCompatActivity {
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 // Get the current song
@@ -76,6 +80,10 @@ public class SongActivity extends AppCompatActivity {
                 // Create toast
                 Toast toast = Toast.makeText(SongActivity.this, "Now playing: " + song.getSong(),
                         Toast.LENGTH_SHORT);
+                // Create a toast's view to change for more visability
+                TextView toastMessage = toast.getView().findViewById(android.R.id.message);
+                toastMessage.setTextColor(Color.BLACK);
+                toastMessage.setBackgroundColor(Color.WHITE);
                 // Display the toast message
                 toast.show();
             }

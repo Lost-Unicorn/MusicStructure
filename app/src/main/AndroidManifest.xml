@@ -18,17 +18,24 @@
         </activity>
         <activity
             android:name=".SongActivity"
-            android:label="@string/song" />
+            android:label="@string/song"
+            android:parentActivityName="com.example.donna.musicapp.MainActivity" />
         <activity
             android:name=".ArtistActivity"
-            android:label="@string/artist" />
+            android:label="@string/artist"
+            android:parentActivityName="com.example.donna.musicapp.MainActivity" />
         <activity
             android:name=".AlbumActivity"
-            android:label="@string/albums" />
+            android:label="@string/albums"
+            android:parentActivityName="com.example.donna.musicapp.MainActivity" />
         <activity
             android:name=".LibraryActivity"
-            android:label="@string/library" />
+            android:label="@string/library"
+            android:parentActivityName="com.example.donna.musicapp.MainActivity" />
 
     </application>
+    <meta-data
+        android:name="android.support.PARENT_ACTIVITY"
+        android:value="com.example.donna.musicapp.MainActivity" />
 
 </manifest>
